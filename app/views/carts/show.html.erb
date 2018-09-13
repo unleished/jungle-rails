@@ -2,9 +2,15 @@
 
   <header class="page-header">
     <h1>My Cart</h1>
-      <h2>1<%= @current_user %></h2>
-      <h2>2<%= current_user.email %></h2>
   </header>
+  <% if enhanced_cart.length  %>
+
+  <div>
+    <h2>Your Cart is Empty!</h2>
+    <h4>Fill your cart with our awesome items <%= link_to "here", root_path %>!</h4>
+    <button><%= link_to "Start Shopping", root_path %></button>
+  </div>
+  <% else %>
 
   <div class="panel panel-default items">
     <table class="table table-bordered">
@@ -32,6 +38,7 @@
         </tr>
       </tfoot>
     </table>
+
   </div>
 
   <div class="row">
@@ -49,6 +56,7 @@
         </script>
       <% end %>
     </div>
+      <% end %>
   </div>
 
 </section>
