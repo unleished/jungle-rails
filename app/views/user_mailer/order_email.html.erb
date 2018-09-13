@@ -1,0 +1,14 @@
+<html>
+  <body>
+    <h1>Order Details</h1>
+      <p>Hi there,</p>
+      <p>Here are the details for your recent order:</p>
+        <% @order.line_items.each do |i| %>
+        <h4><%= i.product.name %></h4>
+        <p><%= image_tag i.product.image.thumb %></p>
+        <p><%= humanized_money_with_symbol i.product.price %></p>
+        <% end %>
+      <p>Your order total was <%= humanized_money_with_symbol @order.total %>   </p>
+      <p>Thanks for shopping at Jungle!</p>
+  </body>
+</html>
