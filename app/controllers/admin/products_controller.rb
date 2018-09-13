@@ -1,4 +1,8 @@
 class Admin::ProductsController < ApplicationController
+  # before_filter :authenticate
+
+  http_basic_authenticate_with name: ENV['ADMIN_LOGIN'], password: ENV['ADMIN_PASS']
+
 
   def index
     @products = Product.order(id: :desc).all
@@ -25,6 +29,12 @@ class Admin::ProductsController < ApplicationController
   end
 
   private
+
+  # def authenticate
+    # authenticate_or_request_with_http_basic do |username, password|
+    #   username === ENV['ADMIN_LOGIN'] && password === ENV['ADMIN_PASS']
+    # end
+  # end
 
   def product_params
     params.require(:product).permit(
