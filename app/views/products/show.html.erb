@@ -23,14 +23,35 @@
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
-          <dt>Ratings</dt>
-          <dd>Average Rating: <%= avg_rating(@reviews) %></dd>
-          <% @reviews.each do |r| %>
-          <dt><%= r.rating %></dt>
-          <dd><%= r.description %></dd>
-          <% end %>
-
+          <dt>Average Rating: </dt>
+          <dd><%= avg_rating(@reviews) %></dd>
         </dl>
+          <div>
+          <h4>Product Reviews</h4>
+            <%= form_for([@product, @new_review]) do |f| %>
+              <%= f.label "Review" %>
+              <%= f.text_field :description %>
+              <%= f.label :rating %>
+              <%= f.select :rating, [1, 2, 3, 4, 5] %>
+              <%= f.submit "Rate" %>
+            <% end %>
+          </div>
+
+          <% if @reviews.length > 0 %>
+          <dl class="dl-horizontal">
+            <% @reviews.each do |r| %>
+            <dt>Rating: <%= r.rating %></dt>
+            <dd><%= r.description %></dd>
+            <dd></dd>
+
+
+          
+            </dd>
+            <% end %>
+          </dl>
+          </dl>
+      </article>
+        <% end %>
       </div>
     </div>
 
