@@ -35,6 +35,13 @@ puts "Re-creating Products ..."
 
 Product.destroy_all
 
+user1 = User.create!({
+  first_name: "Bey",
+  last_name: "Yonce",
+  email: "qu33nB@bey.com",
+  password_digest: "beyonce"
+})
+
 cat1.products.create!({
   name:  'Men\'s Classy shirt',
   description: Faker::Hipster.paragraph(4),
@@ -132,5 +139,39 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+rev1 = Review.create!({
+  product_id: 1,
+  user_id: 1,
+  description: "Lorem ipsum dolor amet wayfarers cardigan literally plaid semiotics. Ut subway tile eiusmod fugiat polaroid succulents prism chicharrones edison bulb stumptown reprehenderit mollit kitsch. ",
+  rating: 4
+})
+
+rev2 = Review.create!({
+  product_id: 4,
+  user_id: 1,
+  description: "Butcher palo santo neutra ugh portland. Aute est gastropub tbh fashion axe ugh.",
+  rating: 4
+})
+
+rev3 = Review.create!({
+  product_id: 7,
+  user_id: 1,
+  description: "Truffaut unicorn yr exercitation dolore polaroid man bun adaptogen banh mi fanny pack helvetica authentic farm-to-table. Williamsburg ex incididunt cillum cloud bread anim officia, single-origin coffee humblebrag neutra.",
+  rating: 2
+})
+
+rev4 = Review.create!({
+  product_id: 1,
+  user_id: 1,
+  description: "Authentic pabst non pitchfork, letterpress before they sold out craft beer unicorn magna kale chips vape eiusmod tbh. Flexitarian fam schlitz organic swag, asymmetrical jianbing kickstarter pop-up franzen. ",
+  rating: 3
+})
+
+rev5 = Review.create!({
+  product_id: 6,
+  user_id: 1,
+  description: "Vinyl banh mi 8-bit meditation enamel pin commodo ennui ullamco heirloom. XOXO biodiesel non, chia in man braid butcher jianbing neutra green juice gastropub thundercats raclette.",
+  rating: 5
+})
 
 puts "DONE!"
