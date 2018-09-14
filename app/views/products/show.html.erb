@@ -23,6 +23,13 @@
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
+          <dt>Ratings</dt>
+          <dd>Average Rating: <%= avg_rating(@reviews) %></dd>
+          <% @reviews.each do |r| %>
+          <dt><%= r.rating %></dt>
+          <dd><%= r.description %></dd>
+          <% end %>
+
         </dl>
       </div>
     </div>
