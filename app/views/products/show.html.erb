@@ -25,28 +25,30 @@
           <dd><%= @product.price %></dd>
           <dt>Average Rating: </dt>
           <dd><%= avg_rating(@reviews) %></dd>
+        <% if current_user %>
+          <dt>Leave a review: </dt>
+          <dd>
+              <%= form_for([@product, @new_review]) do |f| %>
+                <%= f.text_field :description %>
+                <%= f.label :rating %>
+                <%= f.select :rating, [1, 2, 3, 4, 5] %>
+                <%= f.submit "Rate" %>
+                <% end %>
+          </dd>
+        <% end %>
         </dl>
-          <div>
-          <h4>Product Reviews</h4>
-            <%= form_for([@product, @new_review]) do |f| %>
-              <%= f.label "Review" %>
-              <%= f.text_field :description %>
-              <%= f.label :rating %>
-              <%= f.select :rating, [1, 2, 3, 4, 5] %>
-              <%= f.submit "Rate" %>
-            <% end %>
-          </div>
-
           <% if @reviews.length > 0 %>
+          <div>
+            <h4>Product Reviews</h4>
+          </div>
           <dl class="dl-horizontal">
             <% @reviews.each do |r| %>
             <dt>Rating: <%= r.rating %></dt>
-            <dd><%= r.description %></dd>
-            <dd></dd>
-
-
-          
-            </dd>
+            <dd><%= r.description %>
+            <%= link_to fa_icon('trash'),
+                        product_review_url(@product, r),
+                        method: :delete,
+                        data: { confirm: "Are you sure?" } %></dd>
             <% end %>
           </dl>
           </dl>
