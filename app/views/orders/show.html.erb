@@ -2,7 +2,7 @@
 
   <header class="page-header">
     <h1>Order #<%= @order.id %></h1>
-  
+
   </header>
 
   <div class="order-summary jumbotron">
@@ -10,10 +10,11 @@
     <% @order.line_items.each do |i| %>
     <div class="order-product-details">
       <h4><%= i.product.name %></h4>
-      <p><%= image_tag i.product.image.thumb %></p>
+      <%= image_tag i.product.image.thumb %>
       <p><%= humanized_money_with_symbol i.product.price %></p>
+      <% end %>
+      <p>Order Total: <%= humanized_money_with_symbol @order.total %></p>
     </div>
-    <% end %>
   </div>
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>

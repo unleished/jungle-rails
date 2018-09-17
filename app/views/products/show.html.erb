@@ -45,11 +45,11 @@
             <% @reviews.each do |r| %>
             <dt>Rating: <%= r.rating %></dt>
             <dd><%= r.description %>
-              <% if r.user_id == current_user.id %>
-            <%= link_to fa_icon('trash'),
-                        product_review_url(@product, r),
-                        method: :delete,
-                        data: { confirm: "Are you sure?" } %></dd>
+              <% if current_user && r.user_id == current_user.id %>
+                <%= link_to fa_icon('trash'),
+                            product_review_url(@product, r),
+                            method: :delete,
+                            data: { confirm: "Are you sure?" } %></dd>
                 <% end %>
             <% end %>
           </dl>
