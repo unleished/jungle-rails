@@ -5,13 +5,20 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    @product = Product.find(params[:product_id])
+    @reviews = @product.reviews
     @review = Review.new(user_params)
     @review.user_id = current_user.id
     @review.product_id = params[:product_id]
+    @new_review = Review.new
 
     if @review.save
       redirect_to :back
+    else
+      @error = "error adding your review!"
+      render 'products/show'
     end
+
   end
 
   def destroy

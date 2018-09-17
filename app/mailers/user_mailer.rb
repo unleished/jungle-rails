@@ -7,7 +7,7 @@ class UserMailer < ApplicationMailer
     @order = order
 
 
-    mail(to: @user.email , subject: "Inside are your details for Order: #{@order.id}")
+    mail(to: @order.email , subject: "Inside are your details for Order: #{@order.id}")
 
   end
 
