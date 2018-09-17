@@ -2,6 +2,14 @@
 
 A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
 
+##Screen Shots
+![Jungle Homepage](https://github.com/unleished/jungle-rails/blob/master/docs/jungleHP.png?raw=true)
+
+![Product with Reviews](https://github.com/unleished/jungle-rails/blob/master/docs/Jungle_productWRatings.png?raw=true)
+
+![Jungle Cart](https://github.com/unleished/jungle-rails/blob/master/docs/Jungle_cart.png?raw=true)
+
+![Jungle Order Details](https://github.com/unleished/jungle-rails/blob/master/docs/Jungle_OrderDetails.png?raw=true)
 
 ## Setup
 
